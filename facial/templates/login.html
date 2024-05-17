@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+{% block login %}
+<link rel="stylesheet" href="{{url_for('static',filename='login.css')}}" />
+{% endblock login %}
+{% block content %}
+<form action="" method="post">
+  {{ form.hidden_tag() }}
+<div class="container">
+  <div class="inputbox">
+    {{ form.email.label(class="label") }}
+    {{ form.email(class="form",placeholder="example@gmail.com") }}     
+  </div>
+  <div class="inputbox">
+    {{ form.password.label(class="label") }}
+    {{ form.password(class="form") }} 
+  </div>
+  <div class="rememberforgot">
+      <div class="Forgot">
+      <a href="{{url_for('request_reset')}}">Forgot Password</a>
+      </div>
+  </div>
+  <div class="inputbox">
+      <!-- <input type="submit" class="inputsubmit" value="Login"> -->
+      {{form.submit(class='btn')}}
+  </div>
+  <div class="register">
+      <span>Don't have an account?<a href="{{url_for('register')}}">Sign Up</a></span>
+  </div>
+</div>
+</div>
+</form>
+{% endblock content %}

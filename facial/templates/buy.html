@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+{% block buy %}
+<link rel="stylesheet" href="{{url_for('static',filename='buy.css')}}" />
+{% endblock buy %}
+{% block content %}
+<!-- <form method="post" action="">
+        {{form.hidden_tag()}}
+        {{form.csrf_token}} -->
+<div class="container">
+    <h2 class="buyer">CONSUMER</h2>
+    <form id="form" method="POST">
+        {{form.hidden_tag()}}
+        {{form.csrf_token}}
+        <div class="formgroup">
+            {{ form.name.label(class="label") }}<br>
+            {{ form.name(class="form",placeholder="enter your name") }}  
+        </div>
+        
+        <div class="formgroup">
+            {{ form.email.label(class="label") }}<br>
+            {{ form.email(class="form",placeholder="example@gmail.com") }}  
+        </div>
+        
+        <div class="formgroup">
+            {{ form.phone_number.label(class="label") }}<br>
+            {{ form.phone_number(class="form",placeholder="enter phone number") }} 
+        </div>
+
+        <div class="formgroup">
+            {{ form.quantity.label(class="label") }}<br>
+            {{ form.quantity(class="form",placeholder="enter quantity") }} 
+        </div>
+        
+        <div class="formgroup">
+            {{ form.postal_code.label(class="label") }}<br>
+            {{ form.postal_code(class="form",placeholder="enter postal code") }} 
+            <!-- <textarea id="shipping_address" name="shipping_address" rows="4" cols="50" class=textarea required></textarea> -->
+        </div>
+        {{form.submit(class='btn')}}
+    </form>
+</div>
+<!-- </form> -->
+<script src="buy.js"></script>
+{% endblock content %}

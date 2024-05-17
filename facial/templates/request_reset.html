@@ -1,0 +1,17 @@
+{% extends "auth.html" %} {% block heading %} Request Password Reset{% endblock heading %}
+{% block input %}
+<form action="" method="post">
+  {{ form.hidden_tag() }}
+  <div class="email">
+    {{form.email.label(class="label")}}
+    <br />
+    <i class="fa-solid fa-envelope"></i>
+    {{form.email(class="form",placeholder="example@example.com")}}
+  </div>
+
+  {% endblock input %} {% block btn %}
+  <div>{{form.submit(class="button")}}</div>
+</form>
+{% endblock btn %} {% block status %}
+
+{% endblock status %}

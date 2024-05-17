@@ -1,0 +1,8 @@
+{% extends "custom-error-page.html" %} {% block image %}
+<img
+  src="{{url_for('static',filename='assets/locked-robot.jpg')}}"
+  alt="403-image"
+  class="error-image"
+/>
+{% endblock image %} {% block heading %} Forbidden! 403 {% endblock heading%} {%
+block text %} Please check your account and try again!{% endblock text %}

@@ -1,0 +1,9 @@
+{% extends "layout.html" %} {% block content %}
+<div class="error-container">
+  <div class="error-wrapper">
+    {% block image %} {% endblock image %}
+    <h1 class="error-heading">{% block heading %} {% endblock heading%}</h1>
+    <p class="error-text">{% block text %} {% endblock text %}</p>
+  </div>
+</div>
+{% endblock content %}

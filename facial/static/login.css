@@ -1,0 +1,135 @@
+body {
+  background: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.Forgot > a {
+  text-decoration: underline;
+}
+a {
+  text-decoration: none;
+  color: black;
+}
+a:hover {
+  text-decoration: underline;
+}
+input {
+  padding: 12px;
+}
+.wrap {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: white;
+}
+.container {
+  background: rgb(36, 154, 36);
+  position: relative;
+  width: 450px;
+  border: 2px solid black;
+  border-radius: 15px;
+  padding: 7.5em 2.5em 4em 2.5em;
+  color: black;
+  box-shadow: 0px 0px 10px 2px black;
+}
+.header {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  width: 140px;
+  height: 70px;
+  border-radius: 0 0 20px 20px;
+}
+.header span {
+  font-size: 30px;
+  color: black;
+}
+.header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -30px;
+  width: 30px;
+  height: 30px;
+  border-top-right-radius: 50%;
+  box-shadow: 15px 0 0 0 white;
+  background: transparent;
+}
+.header::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: -30px;
+  width: 30px;
+  height: 30px;
+  border-top-left-radius: 50%;
+  box-shadow: 15px 0 0 0 white;
+  background: transparent;
+}
+.inputbox {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin: 20px 0;
+}
+.inputfield {
+  width: 100%;
+  height: 55px;
+  font-size: 16px;
+  background: white;
+  color: black;
+  padding-inline: 20px 50px;
+  border: 2px solid black;
+  border-radius: 10px;
+  width: 90%;
+}
+#Username {
+  margin-bottom: 10px;
+}
+.label {
+  font-size: 18px;
+  font-weight: 500;
+}
+.rememberforgot {
+  display: flex;
+  justify-content: space-between;
+  font-size: 15px;
+}
+.inputsubmit {
+  width: 100%;
+  height: 50px;
+  background-image: rgb(21, 52, 21);
+  font-size: 16px;
+  font-weight: 500;
+  border: none;
+  border: 2px solid black;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 3s;
+}
+.inputsubmit:hover {
+  background: white;
+}
+.register {
+  text-align: center;
+}
+.register a {
+  font-weight: 500;
+}
+@media only screen and (max-width: 546px) {
+  .wrap {
+    padding: 20px;
+  }
+  .container {
+    padding: 7.5em 1.5em 4em 1.5em;
+  }
+}

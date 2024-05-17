@@ -1,0 +1,62 @@
+{% extends "layout.html" %}
+{% block contact %}
+<link rel="stylesheet" href="{{url_for('static',filename='contact.css')}}" />
+{% endblock contact %}
+{% block content %}
+<section class="contact">
+    <div class="content">
+        <h2 class="one">Contact Us</h2>
+        <p>
+            Feel free to reach out to us for any inquiries or assistance. Our dedicated team is here to help you with your questions about our orders or anything else. Simply drop us a message, and we'll get back to you as soon as possible. Your satisfaction is our priority!
+        </p>
+    </div>
+    <div class="container">
+        <div class="info">
+            <div class="box">
+                <div class="icon"><i class="fa fa-map-marker" aria-hidden="true"></i></div>
+                    <div class="text">
+                        <h3>Adresses</h3>
+                        <p>4671 marsei camp Road,<br>Ferr, Minnesota,<br>55060</p>
+                 </div>
+            </div>
+            <div class="box">
+                <div class="icon"><i class="fa fa-phone" aria-hidden="true"></i></div>
+                    <div class="text">
+                        <h3>Phone</h3>
+                        <p>2547123456</p>
+                </div>
+            </div>
+            <div class="box">
+                <div class="icon"><i class="fa fa-envelope" aria-hidden="true"></i></div>
+                    <div class="text">
+                        <h3>Email</h3>
+                        <p>mainaesther302@gmail.com</p>
+                 </div>
+            </div>
+        </div>
+        <div class="contactform">
+            <form method="post" action="" >
+                {{ form.hidden_tag() }}
+                <h2>
+                    Send Message
+                </h2>
+                <div class="inputbox">
+                    {{ form.full_name.label(class="label") }}
+                    {{ form.full_name(class="form",placeholder="enter full name") }}  
+                </div>
+                <div class="inputbox">
+                    {{ form.email.label(class="label") }}
+                    {{ form.email(class="form",placeholder="example@gmail.com") }}  
+                </div>
+                <div class="inputbox">
+                    {{ form.message.label(class="label") }}
+                    {{ form.message(class="form",placeholder="type here") }}  
+                </div>
+                <div class="inputbox">
+                    {{form.submit(class='btn')}}
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+{% endblock content %}

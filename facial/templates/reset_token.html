@@ -1,0 +1,37 @@
+{% extends "auth.html" %} {% block heading %} Request Password Reset{% endblock heading %}
+{% block input %}
+<form action="" method="post">
+  {{ form.hidden_tag() }}
+  <div class="password">
+    {{form.password.label(class="label")}}
+    <br />
+    <i class="fa-solid fa-lock"></i>
+    {{form.password(class="form")}}
+    {% if form.password.errors %}
+        <div class="invalid-feedback">
+          {% for error in form.password.errors %}
+            <span>{{error}}</span>
+          {% endfor %}
+        </div>
+    {% endif %}
+  </div>
+
+  <div class="confirm-password">
+    {{form.confirm_password.label(class="label")}}
+    <br />
+    <i class="fa-solid fa-lock"></i>
+    {{form.confirm_password(class="form")}}
+    {% if form.confirm_password.errors %}
+        <div class="invalid-feedback">
+          {% for error in form.confirm_password.errors %}
+            <span>{{error}}</span>
+          {% endfor %}
+        </div>
+    {% endif %}
+  </div> 
+ {% endblock input %} {% block btn %}
+  <div>{{form.submit(class="button")}}</div>
+</form>
+{% endblock btn %} {% block status %}
+
+{% endblock status %}

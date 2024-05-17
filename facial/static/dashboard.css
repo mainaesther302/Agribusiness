@@ -1,0 +1,114 @@
+.dashboard-container {
+  /* border: 2px solid maroon; */
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.dashboard-logo {
+  /* border: 2px solid greenyellow; */
+  width: 100%;
+  flex: 1;
+}
+
+.notice {
+  display: flex;
+  gap: 12px;
+}
+
+.notice {
+  /* border: 2px solid salmon; */
+  /* padding: 14px; */
+  width: fit-content;
+  gap: 5px;
+  padding: 9px;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.notice {
+  background: rgba(50, 54, 59, 0.05);
+}
+
+.controls,
+.notice {
+  /* From https://css.glass */
+  background: rgba(50, 54, 59, 0.05);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(9.2px);
+  -webkit-backdrop-filter: blur(9.2px);
+  border: 1px solid rgba(50, 54, 59, 0.53);
+}
+
+.note,
+.danger-icon {
+  color: #de0b1d;
+}
+
+.settings {
+  color: #911313;
+}
+
+.canvas {
+  border: 2px solid rosybrown;
+  width: 620;
+  height: 560px;
+}
+
+.interface {
+  display: flex;
+  gap: 30px;
+  margin-left: 7%;
+}
+
+.controls {
+  width: 420px;
+  height: 560px;
+  /* border: 2px solid blueviolet; */
+}
+
+.controls>h4 {
+  text-align: center;
+  font-weight: bold;
+  font-size: 28px;
+  color: rosybrown;
+  margin-top: 9px;
+  margin-bottom: 12px;
+}
+
+.controls h3 {
+  font-weight: bold;
+  font-size: 17px;
+  color: rosybrown;
+}
+
+.control-buttons {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  gap: 18px;
+}
+
+.controls .btn-ctrl:hover {
+  background-color: #216063;
+}
+
+.controls .btn-ctrl,
+.controls input {
+  width: 250px;
+  padding: 14px;
+  font-weight: bold;
+  background-color: #165a5e;
+  color: rosybrown;
+  border-radius: 5px;
+  margin: 0 auto;
+}
+
+.controls form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}

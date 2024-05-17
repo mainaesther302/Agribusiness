@@ -1,0 +1,86 @@
+
+body{
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  width: 100%;
+  min-height: 100vh;
+  padding: 10px 10%;
+  overflow: hidden;
+  position: relative;
+}
+.header{
+  position: fixed;
+  top:0;
+  left: 0;
+  width: 90%;
+  padding: 20px 100px;
+  background:rgb(36, 154, 36) ;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100;
+
+}
+.logo{
+  font-size: 32px;
+  color: black;
+  text-decoration: none;
+  font-weight: 200;
+}
+.navigation a{
+  position:relative;
+  font-size: 18px;
+  color: black;
+  font-weight: 200;
+  text-decoration: none;
+  margin-left: 40px;
+}
+.navigation a::before{
+  content:'' ;
+  position:absolute;
+  top: 100%;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background:black ;
+  transition: 0.3s;
+}
+.navigation a:hover::before{
+  width: 100%;
+}
+/* the above code is for the naviation bar and the body*/
+.insidecontent{
+   margin-top: 10%;
+   max-width: 600px;   
+}
+.insidecontent .signupbutton{
+  display: inline-block;
+  text-decoration: none;
+  padding: 15px 80px;
+  color: black;
+  background:rgb(36, 154, 36) ;
+  font-size: 16px;
+  border-radius: 30px;
+  border-top-right-radius: 30px;
+  transition: 0.3s;
+}
+.insidecontent .signupbutton:hover{
+  border-top-right-radius: 0;
+  background-image: linear-gradient(rgb(36, 154, 36),white);
+}
+.insidecontent h1{
+  font-size: 70px;
+  color: black;
+  line-height: 1.8;
+}
+.insidecontent p{
+  margin:10px 0 30px;
+  color: black;
+  line-height: 1.8;
+}
+.image{
+  width: 530px;
+  position:absolute;
+  bottom: 0;
+  right: 10%;
+}
+

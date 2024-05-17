@@ -1,0 +1,21 @@
+{% extends "layout.html" %} {% block content %}
+<div class="container-login">
+  <div class="wrapper">
+    <div class="heading">
+      <img src="{{url_for('static',filename='assets/logo.jpg')}}" alt="logo" width="60" height="60" />
+      <h4>{% block alt %}{% endblock %}</h4>
+      <h2>{% block heading %}{% endblock %}</h2>
+      <p>{% block paragraph %}{% endblock %}</p>
+    </div>
+    {% block statement %}{% endblock %}
+    <div class="input-container">{% block input %} {% endblock %}</div>
+    {% if forgot == True %}
+    <div class="forgot-password">
+      <a href="{{ url_for('request_reset') }}">Forgot Password?</a>
+    </div>
+    {% endif %}
+    <div class="signup-login-button">{% block btn %} {% endblock %}</div>
+    <div class="login-account">{% block status %} {% endblock %}</div>
+  </div>
+</div>
+{% endblock content %} {% block links %} {% endblock %}

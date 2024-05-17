@@ -1,0 +1,9 @@
+{% extends "custom-error-page.html" %} {% block image %}
+<img
+  src="{{url_for('static',filename='assets/404-robot.jpg')}}"
+  alt="404-image"
+  class="error-image"
+/>
+{% endblock image %} {% block heading %} Uh oh! 404 Not Found {% endblock
+heading%} {% block text %} The page you requested for could not be found. {%
+endblock text %}

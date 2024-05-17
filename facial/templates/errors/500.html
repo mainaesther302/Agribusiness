@@ -1,0 +1,9 @@
+{% extends "custom-error-page.html" %} {% block image %}
+<img
+  src="{{url_for('static',filename='assets/500-robot.jpg')}}"
+  alt="500-image"
+  class="error-image"
+/>
+{% endblock image %} {% block heading %} Internal Server Error! 500 {% endblock
+heading%} {% block text %} An internal server error occured. Please try again
+after a moment!{% endblock text %}

@@ -1,0 +1,236 @@
+.account-wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  padding-top: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-top: 12px;
+}
+
+.account-container {
+  display: flex;
+  flex-direction: column;
+  width: 1000px;
+  margin: 50px auto;
+  padding: 20px;
+
+  /* From https://css.glass */
+  background: #181a1b;
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(0px);
+  -webkit-backdrop-filter: blur(0px);
+  border: 1px solid rgba(22, 23, 23, 1);
+}
+
+.account-wrapper input {
+  border: 2px solid #73757e;
+  border-radius: 4px;
+  caret-color: #efeaed;
+  color: #d4d3cf;
+  font-weight: bold;
+  font-size: 17px;
+}
+
+.email-block,
+.password-block {
+  padding-top: 14px;
+  padding-right: 14px;
+  padding-left: 14px;
+  padding-bottom: 2px;
+}
+
+.email-block {
+  display: flex;
+  flex-direction: column;
+}
+
+.current_password small {
+  color: moccasin;
+  font-weight: bold;
+  font-style: italic;
+  font-size: 14px;
+  padding: 5px;
+}
+
+#profile {
+  margin-top: 12px;
+}
+
+.update-btn {
+  margin: 0 auto;
+  width: 300px;
+  height: 50px;
+  padding: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #efeaed !important;
+  background-color: #8baad9 !important;
+  align-self: flex-end;
+  margin-top: 4px;
+  margin-bottom: 12px;
+}
+
+.update-btn:hover {
+  background-color: #6a7f9e !important;
+}
+
+.account-heading {
+  text-align: center;
+  font-size: 24px;
+  color: #8fafdf;
+}
+
+.email-block,
+.password-block {
+  width: 500px;
+}
+
+.delete-form {
+  margin-top: 30px;
+  padding-left: 12px !important;
+  padding-right: 12px !important;
+  padding-bottom: 12px !important;
+}
+
+.delete-form h3 {
+  margin-top: 24px;
+  font-size: 22px;
+  color: firebrick;
+  font-weight: bold;
+}
+
+#del-btn {
+  background-color: firebrick;
+  border-radius: 9px;
+  color: #efeaed;
+  padding: 12px;
+  font-weight: bold;
+  margin-left: 12px;
+}
+
+#del-btn:hover {
+  background-color: rgba(178, 34, 34, 0.75);
+  color: rgba(239, 234, 237, 0.8);
+}
+
+.form-heading {
+  text-transform: uppercase;
+  font-size: 16px;
+  font-weight: bold;
+  color: #8fafdf;
+}
+
+.email-block {
+  /*  gap: 152px;*/
+  gap: 140px;
+}
+
+.password-block {
+  gap: 38px;
+}
+
+.email-block,
+.password-block {
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+}
+
+.sep {
+  border-right: 0.5px dashed grey;
+}
+
+#deleteModal {
+  position: fixed;
+  top: 1.3%;
+  left: 46%;
+  padding-left: 27px;
+  padding-right: 28px;
+  padding-top: 8px;
+  padding-bottom: 12px;
+  border: 2px solid grey;
+}
+
+#deleteModal::backdrop {
+  background-color: rgba(24, 26, 16, 0.59);
+}
+
+.modal-text {
+  font-size: 22px;
+  font-weight: bold;
+  line-height: 1.5;
+  color: firebrick;
+}
+
+#cancelBtn,
+#confirmBtn {
+  padding-top: 9px;
+  padding-bottom: 9px;
+  padding-left: 14px;
+  padding-right: 14px;
+  font-size: 18px;
+}
+
+#cancelBtn:hover,
+#confirmBtn:hover {
+  text-decoration: underline;
+}
+
+#cancelBtn {
+  color: #efeaed;
+  background-color: #5d9cdf;
+  border-radius: 6px;
+}
+
+#confirmBtn {
+  color: firebrick;
+  font-weight: bold;
+}
+
+.modal-btn {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.modal-text {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.back-button {
+  padding-top: 9px;
+  padding-bottom: 8px;
+  padding-left: 12px;
+  padding-right: 12px;
+  border-radius: 4px;
+  color: #efeaed;
+  background-color: #5d9cdf;
+  text-decoration: none;
+}
+
+.back-button:hover {
+  box-shadow: 1px -2px 12px 3px #24476cad;
+}
+
+/* Debugging */
+/*
+.account-wrapper {
+  border: 2px solid magenta;
+}
+.email-block {
+  border: 2px solid firebrick;
+}
+.password-block {
+  border: 2px solid gainsboro;
+}
+.delete-form {
+  border: 2px solid paleturquoise;
+}
+.account-container {
+  border: 2px solid moccasin;
+}
+*/

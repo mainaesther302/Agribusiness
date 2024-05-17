@@ -1,0 +1,49 @@
+div#error-message {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  padding: 24px;
+  color: red;
+  background: bisque;
+  font-size: 19px;
+}
+.error-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.error-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 60px;
+  width: 500px;
+  height: 200px;
+  padding: 40px;
+}
+.error-heading {
+  font-size: 40px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #d22020;
+}
+
+.error-text {
+  color: #efeead;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 25px;
+  width: 470px;
+}
+
+.redirect-link {
+  text-decoration: underline;
+  line-height: 1.2;
+  font-size: 18px;
+  color: tan;
+}
+.error-image {
+  width: 320px;
+  border-radius: 9999px;
+  pointer-events: none;
+}

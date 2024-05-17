@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+{% block sell %}
+<link rel="stylesheet" href="{{url_for('static',filename='sell.css')}}" />
+{% endblock sell %}
+{% block content %}
+<div class="container">
+  <h2 class="seller">PRODUCER</h2>
+  <form class="form" method="post" action="">
+    <label for="seller_name" class="label">Seller Name:</label><br>
+    <input type="text" id="seller_name" name="seller_name" class="inputs" required><br>
+
+    <label for="seller_email" class="label">Email:</label><br>
+    <input type="email" id="seller_email" name="seller_email" class="inputs"><br>
+
+    <label for="seller_phone" class="label">Phone Number:</label><br>
+    <input type="tel" id="seller_phone" name="seller_phone" class="inputs"><br>
+
+    <label for="seller_address" class="label">Postal code:</label><br>
+    <input type="number" id="product_price" name="product_price" step="0.01" min="0" class="inputs" required><br>
+    <!-- <textarea id="seller_address" name="seller_address" rows="4" cols="50" required></textarea><br> -->
+
+    <label for="product_name" class="label">Product Name:</label><br>
+    <input type="text" id="product_name" name="product_name" class="inputs"><br>
+
+    <label for="product_description" class="label">Product Description:</label><br>
+    <textarea id="product_description" name="product_description" rows="4" cols="50" required></textarea><br>
+
+    <label for="product_price" class="label">Price:</label><br>
+    <input type="number" id="product_price" name="product_price" step="0.01" min="0" class="inputs" required><br>
+
+    <label for="product_quantity" class="label">Quantity:</label><br>
+    <input type="number" id="product_quantity" name="product_quantity" min="1" class="inputs"
+      placeholder="quantity in kilograms"><br>
+
+    <input type="submit" value="Submit" class="submit">
+  </form>
+</div>
+{% endblock content %}
