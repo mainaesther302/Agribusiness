@@ -13,23 +13,37 @@ def home():
     # consumer = Consumer.query.first()
     consumers = Consumer.query.order_by(Consumer.id).all()
 
-    return render_template('index.html',title='Home',consumers=consumers)
+    return render_template('index.html',
+                            title='Home',
+                            consumers=consumers,
+                            user=current_user)
     
 
 @app.route('/login',methods=('GET','POST'))
 def login():
     if current_user.is_authenticated:
         return redirect(url_for('home'))
+
     form = LoginForm()
     if form.validate_on_submit():
-        user = User.query.filter_by(email=form.email.data).first()
-        if user and bcrypt.check_password_hash(user.password,form.password.data):
-            login_user(user)
-            flash(f'Welcome back {user.username}!','success')
-            next_page = request.args.get('next')
-            return redirect(next_page) if next_page else redirect(url_for('home'))
+        email = form.email.data
+        password = form.password.data
+
+        user = User.query.filter_by(email=email).first()
+
+        # check if the user already exists
+        if user:
+            if bcrypt.check_password_hash(user.password,password):
+                login_user(user)
+                flash(f'Welcome back {user.username}!','success')
+                next_page = request.args.get('next')    #what?
+                return redirect(next_page) if next_page else redirect(url_for('home'))
+            else:
+                message = 'Login failed. Make sure you have an account'
+                flash(message, category='danger')
         else:
-            flash('Login failed! Invalid credentials!','fail')
+            message = 'Looks like you do not have an account. Create one instead?'
+            flash(message, category='danger')
     return render_template('login.html',title='Log In',forgot = True,form=form)
 
 @app.route('/contact',methods=('GET','POST'))
@@ -73,21 +87,49 @@ def sell():
         return redirect('home')
     return render_template('sell.html',form=form)
 
+
+# route for signing up
 @app.route('/register',methods=('GET','POST'))
 @app.route('/sign-up',methods=('GET','POST'))
 @app.route('/signup',methods=('GET','POST'))
 def register():
     if  current_user.is_authenticated:
         return redirect(url_for('home'))
+
     form = RegistrationForm()
-    if form.validate_on_submit():
-        hashed_password=bcrypt.generate_password_hash(form.password.data)
-        user = User(username=form.username.data,email=form.email.data,password=hashed_password)
-        db.session.add(user)
-        db.session.commit()
-        flash(f'Account created for {form.username.data}!','success')
-        return redirect(url_for('login'))
-    return render_template('sign-up.html',title='Sign Up',forgot = False,form=form)
+    if request.method == 'POST' and form.validate():
+        username = form.username.data
+        email = form.email.data
+        password = form.password.data
+
+        # hash password with bcrypt
+        hashed_password=bcrypt.generate_password_hash(password)
+
+        # query db to ensure user is not already in db
+        user = User.query.filter_by(email=email).first()
+
+        if user:
+            message = 'Oops! Looks like the account already exists. Try logging in?'
+            flash(message, category='danger')
+        else:
+            try:
+                new_user = User(username=username,
+                                email=email,
+                                password=hashed_password)
+                db.session.add(new_user)
+                db.session.commit()
+
+                # login_user(new_user)
+                # flash('You have been logged in succesfully')
+                flash(f'Account created for {form.username.data}!','success')
+                return redirect(url_for('login'))
+            except Exception as e:
+                print (e)
+                message = 'Oops! Looks like an error occurred.Try again?'
+                flash(message, category='warning')
+        
+    return render_template('sign-up.html',title='Sign Up',forgot = False,form=form,user=current_user)
+
 
 def print_user_data(form):
     if request.method == 'GET':
@@ -159,6 +201,8 @@ def request_reset():
         flash('An email has been sent to you with the reset instructions!','info')
         return redirect(url_for('login'))
     return render_template('request_reset.html',title='Reset Password',form=form)
+
+
 
 @app.route('/reset_password/<token>',methods=('GET','POST'))
 def reset_token(token):

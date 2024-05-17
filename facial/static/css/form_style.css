@@ -1,0 +1,142 @@
+:root{
+
+}
+
+*{
+    padding:0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+body{
+    width: 100vw;
+}
+
+
+/********************************/
+/******** NAVBAR STYLING******* */
+/********************************/
+.navbar{
+    /* background-color: var(); */
+}
+.navbar .logo{
+    margin-left: 10%;
+}
+.navbar a{
+    font-size: 2rem;
+}
+
+.main-container{
+    display: flex;
+    margin-bottom: 2rem;    /* preventing overlap with footer*/
+}
+
+
+/********************************/
+/* AUTHENTICATION FORMS STYLING */
+/********************************/
+.auth-container{
+    width:100%;
+    /* height:100vh; */
+    display:flex;
+    justify-content: space-around;
+    align-items: center;
+    padding:0 1rem;
+}
+
+.auth-image{
+    display:flex;
+    height: 100%;
+    width:47%;
+    top:2rem;
+}
+
+.auth-image img {
+    width:100%;
+}
+
+.auth-form{
+    width: 47%;
+    display: flex;
+    align-items: center;
+    justify-content:space-around;
+    gap: 3rem;
+}
+
+.auth-form form{
+    width:85%;
+}
+
+.auth-form fieldset .form-group{
+    padding: .3rem 0;
+}
+.auth-form fieldset .form-group button{
+    margi-top:.4rem;
+}
+
+.auth-form h1{
+    display: flex;
+    justify-content: center;    /* this aligns title to center... */
+    font-size: 2.9rem;
+    margin:10px 0;
+    color:#333;
+    text-transform: uppercase;    /*transform text to uppercase*/
+}
+
+.form-group{
+    font-size: 25px;
+    font-weight: bold;
+    /*line-height: 40px;    /*spacin between the rows */
+}
+
+.auth-form .form-control{
+	border-radius: 40px;
+	height: 50px;
+	font-weight: 500;
+}
+.auth-form .remember-forgot{
+    line-height: 40px;    /*spacin between the rows*/
+	display:flex;
+	justify-content: space-between;
+	font-size:20px;
+}
+
+.remember-forgot a{
+	text-decoration: none;
+}
+
+.remember-forgot a:hover{
+	text-decoration: underline;
+}
+.auth-form .btn{
+	width: 100%;
+	height:55px;
+	border-radius: 40px;
+	box-shadow: 0 0 10px;
+	font-weight: 600;
+}
+
+.auth-form .signup-link{
+	text-align: center;
+}
+
+.signup-link p a{
+	text-decoration: none;
+	font-weight: 700;
+}
+
+.signup-link p a:hover{
+	text-decoration: underline;
+}
+
+/* style the footer */
+.footer{
+    background-color: #00458E;
+    color: #fff;
+    text-align: center;
+    /* following ensure footer is fixed to bottom of page */
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+}

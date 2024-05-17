@@ -1,11 +1,15 @@
 {% extends "layout.html" %} 
+
 {% block index %}
 <link rel="stylesheet" href="{{url_for('static',filename='style.css')}}" />
 <link rel="stylesheet" href="{{url_for('static',filename='bootstrap.min.css')}}" />
 {% endblock index %}
+
 {% block script %}
 <script src="{{url_for('static',filename='script.js')}}" defer></script>
-{% endblock script %} {% block content %}
+{% endblock script %} 
+
+{% block content %}
 <body>
   <header class="header">
       <a href="{{url_for('home')}}" class="logo">MacaFarm</a>
@@ -86,7 +90,7 @@
         <tbody class="table-group-divider">
                 {% for consumer in consumers %}
           <tr class="">
-            <th>{{ consumer.full_name}}</th>
+            <th>{{ consumer.user_id }}</th>
             <th>{{consumer.email}}</th>
             <th>{{consumer.phone_number}}</th>
             <th>{{consumer.postal_code}}</th>
