@@ -7,6 +7,7 @@ from flask_login import login_user, current_user, logout_user, login_required
 
 forgot = False
 
+# homepage route
 @app.route('/home')
 @app.route('/')
 def home():
@@ -19,6 +20,7 @@ def home():
                             user=current_user)
     
 
+# login route
 @app.route('/login',methods=('GET','POST'))
 def login():
     if current_user.is_authenticated:
@@ -242,6 +244,7 @@ def error_500(error):
 
 
 @app.route('/logout')
+@login_required
 def logout():
     logout_user()
     return redirect(url_for('home'))

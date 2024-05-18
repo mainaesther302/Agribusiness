@@ -7,14 +7,10 @@ from facial.models import User
 from facial import bcrypt
 
 class RegistrationForm(FlaskForm):
-    username = StringField('UserName:',validators=[DataRequired(),Length(min=2,max=15)])
-    
-    email = StringField("Email:",validators=[DataRequired(),Email()])
-    
-    password = PasswordField('Password:',validators=[DataRequired(),Length(min=6)])
-    
-    confirm_password = PasswordField('Confirm Password:',validators=[DataRequired(),Length(min=6),EqualTo('password')])
-    
+    username = StringField('UserName:',validators=[DataRequired(),Length(min=2,max=15)]) 
+    email = StringField("Email:",validators=[DataRequired(),Email()])    
+    password = PasswordField('Password:',validators=[DataRequired(),Length(min=6)])    
+    confirm_password = PasswordField('Confirm Password:',validators=[DataRequired(),Length(min=6),EqualTo('password')])    
     submit = SubmitField('Sign up')
     
     def validate_username(self,username):
@@ -29,18 +25,13 @@ class RegistrationForm(FlaskForm):
 
 class LoginForm(FlaskForm):
     email = StringField("Email:",validators=[DataRequired(),Email()])
-    
     password = PasswordField('Password:',validators=[DataRequired(),Length(min=6)])
-    
     submit = SubmitField('Log in')
 
 class ContactForm(FlaskForm):
     full_name = StringField("Full Name:",validators=[DataRequired()])
-    
     email = StringField('Email:',validators=[DataRequired(),Email()])
-    
     message = StringField('Type your message...',validators=[DataRequired(),Length(min=6)])
-
     submit = SubmitField('Send')
     
     def validate_email(self,email):
@@ -50,16 +41,11 @@ class ContactForm(FlaskForm):
 
 
 class BuyForm(FlaskForm):
-    name = StringField("Name:",validators=[DataRequired()])
-    
-    email = StringField('Email:',validators=[DataRequired(),Email()])
-    
+    name = StringField("Name:",validators=[DataRequired()])    
+    email = StringField('Email:',validators=[DataRequired(),Email()])    
     phone_number = StringField('Phone Number:',validators=[DataRequired(),Length(min=10)])
-
-    quantity = StringField("Quantity:",validators=[DataRequired(),Length(min=1)])
-    
-    postal_code = StringField('Postal Code:',validators=[DataRequired(),Length(min=2)])
-    
+    quantity = StringField("Quantity:",validators=[DataRequired(),Length(min=1)])    
+    postal_code = StringField('Postal Code:',validators=[DataRequired(),Length(min=2)])    
     submit = SubmitField('Submit')
     
     def validate_email(self,email):
@@ -69,31 +55,20 @@ class BuyForm(FlaskForm):
 
 
 class SellForm(FlaskForm):
-    full_name = StringField("Full Name:",validators=[DataRequired()])
-    
-    email = StringField('Email:',validators=[DataRequired(),Email()])
-    
+    full_name = StringField("Full Name:",validators=[DataRequired()])    
+    email = StringField('Email:',validators=[DataRequired(),Email()])    
     phone_number = StringField('Phone Number:',validators=[DataRequired(),Length(min=10)])
-
-    quantity = StringField("Quantity:",validators=[DataRequired(),Length(min=1)])
-    
-    postal_code = StringField('Postal Code:',validators=[DataRequired(),Length(min=2)])
-    
-    product_name = StringField('Product Name:',validators=[DataRequired(),Length(min=2)])
-    
-    product_description = StringField('Product Description:',validators=[DataRequired(),Length(min=2)])
-    
-    price = StringField('Price:',validators=[DataRequired(),Length(min=2)])
-    
-    quantity = StringField('Quantity:',validators=[DataRequired(),Length(min=2)])
-    
+    quantity = StringField("Quantity:",validators=[DataRequired(),Length(min=1)])    
+    postal_code = StringField('Postal Code:',validators=[DataRequired(),Length(min=2)])    
+    product_name = StringField('Product Name:',validators=[DataRequired(),Length(min=2)])    
+    product_description = StringField('Product Description:',validators=[DataRequired(),Length(min=2)])    
+    price = StringField('Price:',validators=[DataRequired(),Length(min=2)])    
+    quantity = StringField('Quantity:',validators=[DataRequired(),Length(min=2)])    
     submit = SubmitField('Submit')
 
 class UpdateAccountForm(FlaskForm):
-    username = StringField('UserName:',validators=[DataRequired(),Length(min=2,max=15)])
-    
+    username = StringField('UserName:',validators=[DataRequired(),Length(min=2,max=15)])    
     email = StringField("Email:",validators=[DataRequired(),Email()])
-
     submit = SubmitField('Update Profile')
     
     def validate_username(self,username):
@@ -110,11 +85,8 @@ class UpdateAccountForm(FlaskForm):
             
 class UpdatePasswordForm(FlaskForm):
     current_password = PasswordField('Current Password:',validators=[DataRequired(),Length(min=6)])
-
     password = PasswordField('New Password:',validators=[Length(min=6)])
-
     confirm_password = PasswordField('Confirm Password:',validators=[Length(min=6),EqualTo('password')])
-
     submit = SubmitField('Update Password')
 
     # check if user inputs the right current password before updating their password
@@ -133,8 +105,6 @@ class RequestResetForm(FlaskForm):
             raise ValidationError('Account does not exist. Please create an account first')
 
 class ResetPasswordForm(FlaskForm):
-    password = PasswordField('Password:',validators=[DataRequired(),Length(min=6)])
-    
-    confirm_password = PasswordField('Confirm Password:',validators=[DataRequired(),Length(min=6),EqualTo('password')])
-    
+    password = PasswordField('Password:',validators=[DataRequired(),Length(min=6)])    
+    confirm_password = PasswordField('Confirm Password:',validators=[DataRequired(),Length(min=6),EqualTo('password')])    
     submit = SubmitField('Reset Password')

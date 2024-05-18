@@ -1,0 +1,60 @@
+*{
+  padding:0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+body{
+  width: 100vw;
+}
+
+/********************************/
+/* NAVBAR STYLING */
+/********************************/
+.navbar{
+  padding: 1rem;
+  display: flex;
+  justify-content: space-arounds;
+  align-items: baseline;
+}
+
+.navbar .navbar-brand{
+  width: fit-content;
+  padding: .4rem;
+  margin: 1rem;
+  font-weight: 800;
+  /* border: 1px solid red; */
+}
+
+.navbar .navbar i{
+  /* transform: ; */
+}
+
+.navbar .menu-items ul{
+  display: flex;
+  list-style: none;
+  align-items: baseline;
+
+}
+
+.navbar .menu-items ul li a{
+  text-decoration: none;
+  /* border: 1px solid; */
+  padding: .4rem;
+  margin: .7rem;
+  font-weight: 500;
+  color: bisque;
+}
+
+.navbar .menu-items ul li a:hover{
+  text-underline-offset: .7rem;
+  text-decoration: underline;
+  color:rgb(80, 163, 16);
+  
+}
+
+/********************************/
+/* MAIN BODY STYLING */
+/********************************/
+

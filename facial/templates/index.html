@@ -1,76 +1,33 @@
-{% extends "layout.html" %} 
+{% extends "base.html" %} 
 
-{% block index %}
-<link rel="stylesheet" href="{{url_for('static',filename='style.css')}}" />
-<link rel="stylesheet" href="{{url_for('static',filename='bootstrap.min.css')}}" />
-{% endblock index %}
 
 {% block script %}
 <script src="{{url_for('static',filename='script.js')}}" defer></script>
 {% endblock script %} 
 
-{% block content %}
-<body>
-  <header class="header">
-      <a href="{{url_for('home')}}" class="logo">MacaFarm</a>
-      
-      <nav class="navigation">
-          <a href="{{url_for('home')}}">Home</a>
-       
-          <a href="{{url_for('contact')}}">Contact</a>
-          {% if  current_user.is_authenticated %}
-          <a href="{{url_for('buy')}}">Buy</a>
-          <a href="{{url_for('sell')}}">Sell</a>
-          {% endif%}
-          {% if not current_user.is_authenticated %}
-          <a href="{{url_for('login')}}">Login</a>
-          {% endif %}
-          {% if  current_user.is_authenticated %}
-          <a href="{{url_for('logout')}}">logout</a>
-          {% endif %}
-          
-      </nav>
-  </header>
-  {% if not current_user.is_authenticated %}
+{% block body %}
+
+  {% if current_user.is_anonymous %}
+
   <div class="insidecontent">
+    <div>
       <h2>Welcome!!<br>to Macafarm trading </h2>
       <p> Dive into a world of flavor with our premium selection of macadamia nuts,With convenient online ordering.
           Explore our wide range of delectable offerings and treat yourself or a loved one to the ultimate nutty experience.
           shop now and embark on a journey to nut nirvana! 
       </p>
-      <a href="{{url_for('register')}}" class="signupbutton">Sign Up</a>
-  </div>
-  {% else %}
-      <div class="insidecontent">
-<!--         <table>
-          <caption>Sellers Information!!</caption>
-          <tr>
-            <th>Seller's Name:</th>
-            <th>Email:</th>
-            <th>Phone Number:</th>
-            <th>Postal Code:</th>
-            <th>Product Name</th>
-            <th>Product Description:</th>
-            <th>Price:</th>
-            <th>Quantity:</th>
-        </tr>
+      <a href="{{url_for('register')}}" class="btn btn-primary">Sign Up</a>
+    </div>
 
-        {% for consumer in consumers %}
-          <tr>
-              <th>{{ consumer.full_name}}</th>
-              <th>{{consumer.email}}</th>
-              <th>{{consumer.phone_number}}</th>
-              <th>{{consumer.postal_code}}</th>
-              <th> - </th>
-              <th> - </th>
-              <th> - </th>
-              <th>{{consumer.quantity}}</th>
-              
-              
-          </tr>
-        {% endfor %}   
-      </table>
- -->
+    <div class="homepage-image">
+      <img src="{{url_for('static',filename='assets/photo2.jpg')}}" class="image">
+    </div>
+  </div>
+
+  {% else %}
+
+    <div class="content">
+
      <table class="table table-striped table-secondary table-hover table-bordered border-dark table-responsive-md ">
       <caption> Sellers Information!! </caption>
 
@@ -106,8 +63,7 @@
 
       </div> 
   {% endif %}
-  <!-- <img src="{{url_for('static',filename='assets/photo2.jpg')}}" class="image"> -->
-</body>
-</html>
-{% endblock content %}
+
+  
+{% endblock %}
 
