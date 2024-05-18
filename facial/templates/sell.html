@@ -1,38 +1,154 @@
-{% extends "layout.html" %}
-{% block sell %}
-<link rel="stylesheet" href="{{url_for('static',filename='sell.css')}}" />
-{% endblock sell %}
-{% block content %}
-<div class="container">
-  <h2 class="seller">PRODUCER</h2>
-  <form class="form" method="post" action="">
-    <label for="seller_name" class="label">Seller Name:</label><br>
-    <input type="text" id="seller_name" name="seller_name" class="inputs" required><br>
+{% extends "form.html" %}
 
-    <label for="seller_email" class="label">Email:</label><br>
-    <input type="email" id="seller_email" name="seller_email" class="inputs"><br>
+{%block title %} Producer {% endblock %}
 
-    <label for="seller_phone" class="label">Phone Number:</label><br>
-    <input type="tel" id="seller_phone" name="seller_phone" class="inputs"><br>
 
-    <label for="seller_address" class="label">Postal code:</label><br>
-    <input type="number" id="product_price" name="product_price" step="0.01" min="0" class="inputs" required><br>
-    <!-- <textarea id="seller_address" name="seller_address" rows="4" cols="50" required></textarea><br> -->
+{% block body %}
 
-    <label for="product_name" class="label">Product Name:</label><br>
-    <input type="text" id="product_name" name="product_name" class="inputs"><br>
+<div class="auth-container sell-form" >
 
-    <label for="product_description" class="label">Product Description:</label><br>
-    <textarea id="product_description" name="product_description" rows="4" cols="50" required></textarea><br>
+  <!-- <div class="auth-image">
+    <img src="static/assets/signin.png">
+  </div> -->
 
-    <label for="product_price" class="label">Price:</label><br>
-    <input type="number" id="product_price" name="product_price" step="0.01" min="0" class="inputs" required><br>
+  <div class="auth-form">
+    <form method="POST">
+          {{ form.hidden_tag() }}
+          {{ form.csrf_token }}
+      <fieldset>
 
-    <label for="product_quantity" class="label">Quantity:</label><br>
-    <input type="number" id="product_quantity" name="product_quantity" min="1" class="inputs"
-      placeholder="quantity in kilograms"><br>
+        <h1> Producer </h1>
 
-    <input type="submit" value="Submit" class="submit">
-  </form>
+          <div class="form-group">
+            <i class='bx bx-user'></i>
+              {{ form.full_name.label }}
+              {{ form.full_name(class='form-control', placeholder='Enter Your Name') }}
+              <!-- log possible error messages if any -->
+              {% if form.full_name.errors %} 
+              <div class="invalid-feedback">
+                  {% for error in form.full_name.errors %}
+                    <span>{{error}}</span>
+                  {% endfor %}
+              </div>
+              {% endif %}
+          </div>
+
+          <div class="form-group">
+            <i class='bx bx-user'></i>
+              {{ form.email.label }}
+              {{ form.email(class='form-control', placeholder='Enter Email') }}
+              
+              <!-- log error messages for the email -->
+              {% if form.email.errors %}
+                  <div class="invalid-feedback">
+                    {% for error in form.email.errors %}
+                        <span>{{error}}</span>
+                    {% endfor %}
+                  </div>
+                {% endif %}
+          </div>
+
+          <div class="form-group">
+            <i class='bx bx-user'></i>
+              {{ form.phone_number.label }}
+              {{ form.phone_number(class='form-control', placeholder='Enter Phone Number') }}
+              
+              <!-- log error messages for the phone number -->
+              {% if form.phone_number.errors %}
+              <div class="invalid-feedback">
+                {% for error in form.phone_number.errors %}
+                    <span>{{error}}</span>
+                {% endfor %}
+              </div>
+            {% endif %}
+          </div>
+
+          <div class="form-group">
+            <i class='bx bx-user'></i>
+              {{ form.postal_code.label }}
+              {{ form.postal_code(class='form-control', placeholder='Enter Postal Code') }}
+              
+              <!-- log error messages for the postal code -->
+              {% if form.postal_code.errors %}
+              <div class="invalid-feedback">
+                {% for error in form.postal_code.errors %}
+                    <span>{{error}}</span>
+                {% endfor %}
+              </div>
+            {% endif %}
+          </div>
+
+          <div class="form-group">
+            <i class='bx bx-user'></i>
+              {{ form.product_name.label }}
+              {{ form.product_name(class='form-control', placeholder='Enter Product Name') }}
+              
+              <!-- log error messages for the product name -->
+              {% if form.product_name.errors %}
+              <div class="invalid-feedback">
+                {% for error in form.product_name.errors %}
+                    <span>{{error}}</span>
+                {% endfor %}
+              </div>
+            {% endif %}
+          </div>
+
+          <div class="form-group">
+            <i class='bx bx-user'></i>
+              {{ form.product_description.label }}
+              {{ form.product_description(class='form-control', placeholder='Enter Product Description') }}
+              
+              <!-- log error messages for the product Description -->
+              {% if form.product_description.errors %}
+              <div class="invalid-feedback">
+                {% for error in form.product_description.errors %}
+                    <span>{{error}}</span>
+                {% endfor %}
+              </div>
+            {% endif %}
+          </div>
+
+
+          <div class="form-group">
+              <i class='bx bx-user'></i>
+                {{ form.price.label }}
+                {{ form.price(class='form-control', placeholder='Enter Price') }}
+                
+                <!-- log error messages for the price -->
+                {% if form.price.errors %}
+                <div class="invalid-feedback">
+                  {% for error in form.price.errors %}
+                      <span>{{error}}</span>
+                  {% endfor %}
+                </div>
+              {% endif %}
+            </div>
+
+
+          <div class="form-group">
+            <i class='bx bx-user'></i>
+              {{ form.quantity.label }}
+              {{ form.quantity(class='form-control', placeholder='Enter Buying Quantity') }}
+              
+              <!-- log error messages for the quantity -->
+              {% if form.quantity.errors %}
+              <div class="invalid-feedback">
+                {% for error in form.quantity.errors %}
+                    <span>{{error}}</span>
+                {% endfor %}
+              </div>
+            {% endif %}
+          </div>
+
+      
+    
+          <div align="center" class="form-group">
+            {{ form.submit(class='btn btn-primary') }}
+          </div>
+  
+      </fieldset>
+    </form>
+  </div>
+
 </div>
-{% endblock content %}
+{% endblock %}

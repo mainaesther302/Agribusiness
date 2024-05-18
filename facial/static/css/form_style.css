@@ -178,13 +178,15 @@ body{
 /*************************************************/
 /* FORM STYLING SPECIFIC TO BUY AND SELL FORMS */
 /*************************************************/
-.buy-form .auth-form {
+.buy-form .auth-form,
+.sell-form .auth-form {
     width: 65%;
     padding: .5rem;
     margin: 1rem auto;
 }
 
-.buy-form .auth-form form fieldset{
+.buy-form .auth-form form fieldset,
+.sell-form .auth-form form fieldset{
     border: 2px solid rgba(255,255,255,.2);
     border-radius: 15px;
     background-color: white;

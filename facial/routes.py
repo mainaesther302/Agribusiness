@@ -46,7 +46,7 @@ def login():
         else:
             message = 'Looks like you do not have an account. Create one instead?'
             flash(message, category='danger')
-    return render_template('login.html',title='Log In',forgot = True,form=form)
+    return render_template('login.html',title='Log In',forgot = True,form=form,user=current_user)
 
 @app.route('/contact',methods=('GET','POST'))
 def contact():
@@ -74,7 +74,7 @@ def buy():
                                     user_id=user_id)
             db.session.add(new_consumer)
             db.session.commit()
-            flash(f'Operation Successful','success')
+            flash(f'A new consumer has been succesfully added','success')
             return redirect('home')
         except Exception as e:
             print(e)
@@ -88,12 +88,35 @@ def buy():
 def sell():
     form = SellForm()
     if form.validate_on_submit():
-        producers =  Producer(full_name=form.full_name.data,email=form.email.data,phone_number=form.phone_number.data,postal_code=form.postal_code.data,user_id=current_user.get_id())
-        db.session.add(producers)
-        db.session.commit()
-        flash(f'Operation Successful','success')  
-        return redirect('home')
-    return render_template('sell.html',form=form)
+        name = form.full_name.data
+        email = form.email.data
+        number = form.phone_number.data
+        postal_code = form.postal_code.data
+        product_name = form.product_name.data
+        product_description = form.product_description.data
+        price = form.price.data
+        quantity = form.quantity.data
+
+        try:
+            new_producer =  Producer(full_name=name,
+                                    email=email,
+                                    phone_number=number,
+                                    postal_code=postal_code,
+                                    product_name = product_name,
+                                    product_description = product_description,
+                                    price = price,
+                                    quantity = quantity,
+                                    user_id=current_user.get_id())
+            db.session.add(new_producer)
+            db.session.commit()
+            flash(f'A new producer has been succesfully added','success')  
+            return redirect('home')
+        except Exception as e:
+            print(f'the error is:{e}')
+            message = 'An error occurred'
+            flash(message, category='danger')
+
+    return render_template('sell.html',form=form,user=current_user)
 
 
 # route for signing up
