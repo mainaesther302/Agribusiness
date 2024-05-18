@@ -56,27 +56,33 @@ def contact():
 @app.route('/buy',methods=('GET','POST'))
 def buy():
     form = BuyForm()
-    print('on buy route')
 
-    # if form.validate_on_submit():
-    if request.method == 'POST' and form.validate():
+    if form.validate_on_submit():
+        email = form.email.data
+        phone_number = form.phone_number.data
+        quantity = form.quantity.data
+        postal_code = form.postal_code.data
+        user_id = current_user.get_id()
+
+
         print('validated form')
         try:
-            consumers =  Consumer(email=form.email.data,
-                                    phone_number=form.phone_number.data,
-                                    quantity=form.quantity.data,
-                                    postal_code=form.postal_code.data,
-                                    user_id=current_user.get_id())
-            db.session.add(consumers)
+            new_consumer =  Consumer(email=email,
+                                    phone_number=phone_number,
+                                    quantity=quantity,
+                                    postal_code=postal_code,
+                                    user_id=user_id)
+            db.session.add(new_consumer)
             db.session.commit()
+            flash(f'Operation Successful','success')
             return redirect('home')
         except Exception as e:
             print(e)
-            flash('an error occurred','danger')
+            message = 'an error occurred'
+            flash(message,category='danger')
 
-        flash(f'Operation Successful','success')
         # return redirect('home')
-    return render_template('buy.html',form=form)
+    return render_template('buy.html',form=form,user=current_user)
 
 @app.route('/sell',methods=('GET','POST'))
 def sell():

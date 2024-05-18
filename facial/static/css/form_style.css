@@ -17,16 +17,49 @@ body{
 /********************************/
 /******** NAVBAR STYLING******* */
 /********************************/
-.navbar{
-    /* background-color: var(); */
-}
-.navbar .logo{
-    margin-left: 10%;
-}
-.navbar a{
-    font-size: 2rem;
-}
 
+.navbar{
+    padding: 1rem;
+    display: flex;
+    justify-content: space-arounds;
+    align-items: baseline;
+  }
+  
+  .navbar .navbar-brand{
+    width: fit-content;
+    padding: .4rem;
+    margin: 1rem;
+    font-weight: 800;
+    /* border: 1px solid red; */
+  }
+  
+  .navbar .navbar i{
+    /* transform: ; */
+  }
+  
+  .navbar .menu-items ul{
+    display: flex;
+    list-style: none;
+    align-items: baseline;
+  
+  }
+  
+  .navbar .menu-items ul li a{
+    text-decoration: none;
+    /* border: 1px solid; */
+    padding: .4rem;
+    margin: .7rem;
+    font-weight: 500;
+    color: bisque;
+  }
+  
+  .navbar .menu-items ul li a:hover{
+    text-underline-offset: .7rem;
+    text-decoration: underline;
+    color:rgb(80, 163, 16);
+    
+  }
+  
 .main-container{
     display: flex;
     margin-bottom: 2rem;    /* preventing overlap with footer*/
@@ -140,3 +173,23 @@ body{
     bottom: 0px;
     width: 100%;
 }
+
+
+/*************************************************/
+/* FORM STYLING SPECIFIC TO BUY AND SELL FORMS */
+/*************************************************/
+.buy-form .auth-form {
+    width: 65%;
+    padding: .5rem;
+    margin: 1rem auto;
+}
+
+.buy-form .auth-form form fieldset{
+    border: 2px solid rgba(255,255,255,.2);
+    border-radius: 15px;
+    background-color: white;
+    box-shadow: 2px 2px 12px 1px rgba(140,140,140,.5);
+    line-height: 40px;
+	border-width: 2px;
+    padding: 1.5rem;
+ }

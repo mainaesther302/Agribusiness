@@ -17,6 +17,47 @@
                 <i class='bx bxs-edit logo' class="d-inline-block align-text-top" alt="logo"></i>
                 MacaFarm
             </a>
+
+            <div class="menu-items">
+                <ul>
+
+                    <li>
+                        <a href="{{url_for('home')}}">Home</a>
+                    </li>             
+                    <li>
+                        <a href="{{url_for('contact')}}">Contact</a>
+                    </li>
+                    {% if  current_user.is_authenticated %}
+                    <li>
+                        <a href="{{url_for('buy')}}">Buy</a>
+                    </li>
+                    <li>
+                        <a href="{{url_for('sell')}}">Sell</a>
+                    </li>
+                    {% endif%}
+                    {% if not current_user.is_authenticated %}
+                    <li>
+                        <a href="{{url_for('login')}}">Login</a>
+                    </li>
+                    {% endif %}
+                    {% if  current_user.is_authenticated %}
+                    <li>
+                        <a href="{{url_for('logout')}}">Logout</a>
+                    </li>
+                    {% endif %}
+                    
+                </ul>
+            </div>
+
+            {% if user.is_authenticated %}
+            <div>
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-primary" type="submit"> Search</button>
+                </form>
+            </div>
+            {% endif %}
+        </div>
         
         </div>
       </nav>
