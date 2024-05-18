@@ -53,6 +53,7 @@ class Producer(db.Model,UserMixin):
     phone_number = db.Column(db.Integer,unique=True,nullable=False)
     postal_code = db.Column(db.Integer,unique=True,nullable=False)
     product_name = db.Column(db.String(30),nullable=False)
+    product_picture = db.Column(db.String(1000),nullable=False)
     product_description = db.Column(db.String(100),nullable=False)
     price = db.Column(db.Integer,nullable=False)
     quantity = db.Column(db.Integer,nullable=False)

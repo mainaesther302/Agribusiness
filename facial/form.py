@@ -1,7 +1,8 @@
 from flask_bcrypt import bcrypt
 from flask_wtf import FlaskForm
+from flask_wtf.file import FileRequired
 from flask_login import current_user
-from wtforms import StringField, PasswordField, SubmitField
+from wtforms import StringField, PasswordField, SubmitField,IntegerField,EmailField,TelField,TextAreaField,FileField
 from wtforms.validators import DataRequired, Length, Email, EqualTo, ValidationError
 from facial.models import User
 from facial import bcrypt
@@ -30,7 +31,7 @@ class LoginForm(FlaskForm):
 
 class ContactForm(FlaskForm):
     full_name = StringField("Full Name:",validators=[DataRequired()])
-    email = StringField('Email:',validators=[DataRequired(),Email()])
+    email = EmailField('Email:',validators=[DataRequired(),Email()])
     message = StringField('Type your message...',validators=[DataRequired(),Length(min=6)])
     submit = SubmitField('Send')
     
@@ -42,9 +43,9 @@ class ContactForm(FlaskForm):
 
 class BuyForm(FlaskForm):
     name = StringField("Name:",validators=[DataRequired()])    
-    email = StringField('Email:',validators=[DataRequired(),Email()])    
+    email = EmailField('Email:',validators=[DataRequired(),Email()])    
     phone_number = StringField('Phone Number:',validators=[DataRequired(),Length(min=10)])
-    quantity = StringField("Quantity:",validators=[DataRequired(),Length(min=1)])    
+    quantity = IntegerField("Quantity:",validators=[DataRequired()])    
     postal_code = StringField('Postal Code:',validators=[DataRequired(),Length(min=2)])    
     submit = SubmitField('Submit')
     
@@ -56,15 +57,19 @@ class BuyForm(FlaskForm):
 
 class SellForm(FlaskForm):
     full_name = StringField("Full Name:",validators=[DataRequired()])    
-    email = StringField('Email:',validators=[DataRequired(),Email()])    
-    phone_number = StringField('Phone Number:',validators=[DataRequired(),Length(min=10)])
+    email = EmailField('Email:',validators=[DataRequired(),Email()])    
+    phone_number = TelField('Phone Number:',validators=[DataRequired(),Length(min=10)])
     postal_code = StringField('Postal Code:',validators=[DataRequired(),Length(min=2)])    
     product_name = StringField('Product Name:',validators=[DataRequired(),Length(min=2)])    
-    product_description = StringField('Product Description:',validators=[DataRequired(),Length(min=2)])    
-    price = StringField('Price:',validators=[DataRequired(),Length(min=2)])    
-    quantity = StringField("Quantity:",validators=[DataRequired(),Length(min=1)])    
+    product_picture = FileField('Product Picture:',validators=[FileRequired()])    
+    product_description = TextAreaField('Product Description:',validators=[DataRequired(),Length(min=2)])    
+    price = IntegerField('Price:',validators=[DataRequired()])    
+    quantity = IntegerField("Quantity:",validators=[DataRequired()])    
     submit = SubmitField('Submit')
 
+
+
+# to be deleted...
 class UpdateAccountForm(FlaskForm):
     username = StringField('UserName:',validators=[DataRequired(),Length(min=2,max=15)])    
     email = StringField("Email:",validators=[DataRequired(),Email()])
