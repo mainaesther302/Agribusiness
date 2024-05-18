@@ -1,17 +1,11 @@
-from flask import render_template,url_for, flash, redirect, request
+from flask import render_template,url_for, flash, redirect, request,send_from_directory
 from flask_mail import Message
 from facial import app,bcrypt, db, mail
 from facial.form import RegistrationForm,LoginForm, RequestResetForm, ResetPasswordForm, UpdateAccountForm, UpdatePasswordForm, ContactForm, BuyForm, SellForm
 from facial.models import User, Consumer, Producer
 from flask_login import login_user, current_user, logout_user, login_required
-from werkzeug.utils import secure_filename
+# from werkzeug.utils import secure_filename
 forgot = False
-
-# route to allow viewing of images
-
-
-
-
 
 
 # homepage route
@@ -20,10 +14,12 @@ forgot = False
 def home():
     # consumer = Consumer.query.first()
     consumers = Consumer.query.order_by(Consumer.id).all()
+    producers = Producer.query.order_by(Producer.id).all()
 
     return render_template('index.html',
                             title='Home',
                             consumers=consumers,
+                            producers=producers,
                             user=current_user)
     
 
@@ -100,15 +96,10 @@ def sell():
         number = form.phone_number.data
         postal_code = form.postal_code.data
         product_name = form.product_name.data
-        product_picture = form.product_picture.data
+        # product_picture = form.product_picture.data
         product_description = form.product_description.data
         price = form.price.data
         quantity = form.quantity.data
-
-        # remove invalid characters from filename
-        file = secure_filename(product_picture.filename)
-        file_path = f'./market_pics/{file}'    #set directory to store pics
-        product_picture.save(file_path)
 
         try:
             new_producer =  Producer(full_name=name,
@@ -116,7 +107,6 @@ def sell():
                                     phone_number=number,
                                     postal_code=postal_code,
                                     product_name = product_name,
-                                    product_picture = file_path,
                                     product_description = product_description,
                                     price = price,
                                     quantity = quantity,

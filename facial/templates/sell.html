@@ -93,20 +93,6 @@
             {% endif %}
           </div>
 
-          <div class="form-group">
-            <i class='bx bx-user'></i>
-              {{ form.product_picture.label }}
-              {{ form.product_picture(class='form-control', placeholder='Enter Product Name') }}
-              
-              <!-- log error messages for the product name -->
-              {% if form.product_picture.errors %}
-              <div class="invalid-feedback">
-                {% for error in form.product_picture.errors %}
-                    <span>{{error}}</span>
-                {% endfor %}
-              </div>
-            {% endif %}
-          </div>
 
           <div class="form-group">
             <i class='bx bx-user'></i>

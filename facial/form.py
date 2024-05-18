@@ -43,9 +43,9 @@ class ContactForm(FlaskForm):
 
 class BuyForm(FlaskForm):
     name = StringField("Name:",validators=[DataRequired()])    
-    email = EmailField('Email:',validators=[DataRequired(),Email()])    
+    email = StringField('Email:',validators=[DataRequired(),Email()])    
     phone_number = StringField('Phone Number:',validators=[DataRequired(),Length(min=10)])
-    quantity = IntegerField("Quantity:",validators=[DataRequired()])    
+    quantity = StringField("Quantity:",validators=[DataRequired(),Length(min=2)])    
     postal_code = StringField('Postal Code:',validators=[DataRequired(),Length(min=2)])    
     submit = SubmitField('Submit')
     
@@ -57,11 +57,10 @@ class BuyForm(FlaskForm):
 
 class SellForm(FlaskForm):
     full_name = StringField("Full Name:",validators=[DataRequired()])    
-    email = EmailField('Email:',validators=[DataRequired(),Email()])    
+    email = StringField('Email:',validators=[DataRequired(),Email()])    
     phone_number = TelField('Phone Number:',validators=[DataRequired(),Length(min=10)])
     postal_code = StringField('Postal Code:',validators=[DataRequired(),Length(min=2)])    
     product_name = StringField('Product Name:',validators=[DataRequired(),Length(min=2)])    
-    product_picture = FileField('Product Picture:',validators=[FileRequired()])    
     product_description = TextAreaField('Product Description:',validators=[DataRequired(),Length(min=2)])    
     price = IntegerField('Price:',validators=[DataRequired()])    
     quantity = IntegerField("Quantity:",validators=[DataRequired()])    

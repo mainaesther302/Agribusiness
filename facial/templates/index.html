@@ -29,32 +29,27 @@
     <div class="content">
 
      <table class="table table-striped table-secondary table-hover table-bordered border-dark table-responsive-md ">
-      <caption> Sellers Information!! </caption>
+      <caption> Buyers Information!! </caption>
 
         <thead class="table-dark">
           <tr>
-            <th scope="col"> Seller's Name </th>
+            <th scope="col"> Id </th>
             <th scope="col"> Email </th>
             <th scope="col"> Phone Number </th>
-            <th scope="col"> Postal Code </th>
-            <th scope="col"> Product Name </th>
-            <th scope="col"> Product Description </th>
-            <th scope="col"> Price </th>
             <th scope="col"> Quantity </th>
+            <th scope="col"> Postal Code </th>
           </tr>
         </thead>
 
         <tbody class="table-group-divider">
                 {% for consumer in consumers %}
           <tr class="">
+            <!-- <th>{{ consumer.name }}</th> -->
             <th>{{ consumer.user_id }}</th>
             <th>{{consumer.email}}</th>
             <th>{{consumer.phone_number}}</th>
-            <th>{{consumer.postal_code}}</th>
-            <th> - </th>
-            <th> - </th>
-            <th> - </th>
             <th>{{consumer.quantity}}</th>
+            <th>{{consumer.postal_code}}</th>
           </tr>
                 {% endfor %}
         </tbody>
@@ -62,7 +57,45 @@
       </table> 
 
       </div> 
-  {% endif %}
+
+
+  <table class="table table-striped table-secondary table-hover table-bordered border-dark table-responsive-md ">
+    <caption> Sellers Information!! </caption>
+
+      <thead class="table-dark">
+        <tr>
+          <th scope="col"> Id </th>
+          <th scope="col"> Seller's Name </th>
+          <th scope="col"> Email </th>
+          <th scope="col"> Phone Number </th>
+          <th scope="col"> Postal Code </th>
+          <th scope="col"> Product Name </th>
+          <th scope="col"> Product Description </th>
+          <th scope="col"> Price </th>
+          <th scope="col"> Quantity </th>
+        </tr>
+      </thead>
+
+      <tbody class="table-group-divider">
+              {% for producer in producers %}
+        <tr class="">
+          <th> {{ producer.user_id }} </th>
+          <th>{{ producer.full_name }}</th>
+          <th>{{producer.email}}</th>
+          <th>{{producer.phone_number}}</th>
+          <th>{{producer.postal_code}}</th>
+          <th>{{ producer.product_name }}</th>
+          <th> {{ producer.product_description }} </th>
+          <th> {{ producer.price }} </th>
+          <th>{{producer.quantity}}</th>
+        </tr>
+              {% endfor %}
+      </tbody>
+
+    </table> 
+
+    </div> 
+{% endif %}
 
   
 {% endblock %}
